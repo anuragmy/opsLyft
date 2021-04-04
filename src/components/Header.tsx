@@ -23,7 +23,7 @@ const Header = () => {
         {isLogout && (
           <Button
             type="link"
-            style={{ position: "fixed", right: 10 }}
+            style={{ position: "absolute", right: 10 }}
             onClick={logout}
           >
             Logout
