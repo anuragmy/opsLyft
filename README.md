@@ -6,9 +6,11 @@
 
 2. add mongo uri in server/.env
 
-3. `npm run install` (for server dependencies)
+3. `npm i`
 
-4. `npm start`
+4. `npm run install` (for server dependencies)
+
+5. `npm start`
 
 ### Live url
 
