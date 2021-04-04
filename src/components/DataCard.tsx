@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars*/
 import React from "react";
 import { Card, Statistic } from "antd";
 
-import Spinner from "./Spinner";
+// import Spinner from "./Spinner";
 import { CardStyle } from "./styles";
 
 const DataCard: React.FC<IDataCardProps> = ({ name }) => {
