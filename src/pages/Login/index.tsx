@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, Button, Card } from "antd";
+import { Form, Input, Button, Card, notification } from "antd";
 // import { useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -22,6 +22,10 @@ const Login = () => {
       setLoading(false);
     } catch (err) {
       console.log(err);
+      notification.error({
+        message: "Incorrect Email/Password",
+        duration: 2,
+      });
       setLoading(false);
     }
   };
