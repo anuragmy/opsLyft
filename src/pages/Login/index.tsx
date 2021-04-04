@@ -3,16 +3,18 @@ import { Form, Input, Button, Card, notification } from "antd";
 // import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-import { LOGIN_API } from "../../constants";
+import { LOGIN_API, SIGNUP_API } from "../../constants";
 
 const Login = () => {
   // const history = useHistory();
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [isLogin, setIsLogin] = React.useState<boolean>(true);
 
   const onFinish = async (values: any) => {
+    const api = isLogin ? LOGIN_API : SIGNUP_API;
     setLoading(true);
     try {
-      const result = await axios.post(LOGIN_API, values);
+      const result = await axios.post(api, values);
       // savong token in localstorage
       if (result.data.token) {
         console.log("saved in local storage");
@@ -33,6 +35,8 @@ const Login = () => {
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
+
+  const handleSwitch = () => setIsLogin(!isLogin);
 
   return (
     <Card
@@ -65,7 +69,12 @@ const Login = () => {
 
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Submit
+            {isLogin ? "Login" : "Sign Up"}
+          </Button>
+          <Button type="link" onClick={handleSwitch}>
+            {isLogin
+              ? "Don't have an account? Sign Up"
+              : "Alrady Have an account? Log in"}
           </Button>
         </Form.Item>
       </Form>
