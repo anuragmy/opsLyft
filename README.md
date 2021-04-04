@@ -4,7 +4,7 @@
 
 1. clone
 
-2. `npm i` (for client dependencies)
+2. add mongo uri in server/.env
 
 3. `npm run install` (for server dependencies)
 
